@@ -1,0 +1,115 @@
+/* Garante que o fundo ocupe tudo sem bordas brancas */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* O container agora usa o degradê e centraliza o box */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza verticalmente o formulário */
+  flex-direction: column;
+  min-height: 100vh; 
+  width: 100%;
+  background: linear-gradient(180deg,rgb(164, 21, 21));
+  background-attachment: fixed;
+  padding: 20px;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* O formulário agora segue o mesmo estilo da login-box */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Reduzi um pouco para não ficar muito longo */
+  padding: 30px;
+  border-radius: 30px; /* Arredondado igual ao login */
+  background-color: rgb(164, 21, 21);
+  max-width: 90%;
+  width: 400px;
+  margin-bottom: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+form input {
+  border: none; /* Removida borda preta para seguir o padrão clean */
+  border-radius: 20px; /* Inputs arredondados como no login */
+  height: 45px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 15px;
+  padding-left: 15px;
+  outline: none;
+}
+
+form button {
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  height: 45px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  color: rgb(164, 21, 21); /* Texto da cor do card */
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #fffafa;
+  transform: scale(1.02);
+  opacity: 1; /* Removida a opacidade baixa para o botão brilhar */
+}
+
+/* --- ESTILO DA LISTA (Usuários cadastrados) --- */
+.lista {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(164, 21, 21);
+  margin-top: 10px;
+  padding: 15px 20px;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lista p {
+  color: #ffffff;
+  font-weight: bold;
+  margin: 2px 0;
+  text-align: left;
+}
+
+.lista p span {
+  font-weight: normal;
+  color: #f0f0f0;
+}
+
+.trash-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.2s;
+}
+
+.trash-button:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.trash-icon {
+  width: 22px;
+  height: auto;
+  filter: invert(1); /* Se o ícone for preto, ele fica branco */
+}

@@ -1,0 +1,72 @@
+/* Container com degradê e animação */
+.container-geral {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    overflow: hidden; /* Esconde os corações que saem da tela */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.presente-box {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+/* Estilo da Foto */
+.foto-perfil {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.contador {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0;
+}
+
+.mensagem-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ANIMAÇÃO DOS CORAÇÕES */
+.coracao-flutuante {
+    position: absolute;
+    bottom: -50px;
+    color: rgba(255, 77, 77, 0.6);
+    user-select: none;
+    animation: subir 6s linear infinite;
+}
+
+@keyframes subir {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Ajuste Mobile */
+@media (max-width: 480px) {
+    .contador { font-size: 1.8rem; }
+    .foto-perfil { width: 140px; height: 140px; }
+}

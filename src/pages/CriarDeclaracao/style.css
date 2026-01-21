@@ -1,0 +1,21 @@
+/* Seleciona tanto o box do login quanto o da declaração */
+.login-box, .input-mensagem {
+  background-color: rgb(164, 21, 21) !important;
+  box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.3) !important;
+
+  /* --- EDITE AS BORDAS AQUI --- */
+  border: 3px solid transparent!important; /* Mude o '3px' para a espessura e '#ffffff' para a cor desejada */
+  border-radius: 40px !important;       /* Mude este valor para deixar mais ou menos arredondado */
+  
+  /* Adiciona um espaçamento interno para o conteúdo não encostar na borda */
+  padding: 30px !important;
+}
+
+/* Garante que o fundo da página não tenha bordas brancas e use o seu vermelho */
+.container-geral, .container-login {
+  background: rgb(164, 21, 21) !important;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
