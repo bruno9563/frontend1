@@ -1,21 +1,14 @@
-import { useEffect, useState, useRef } from 'react'
+import { useRef } from 'react'
 import './style.css'
-import Trash from '../../assets/trash.png'
 import api from '../../services/api'
-import { useNavigate } from 'react-router-dom' // Corrigido para useNavigate
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
   const navigate = useNavigate()
-  const [users, setUsers] = useState([])
   
   const inputName = useRef()
   const inputAge = useRef()
   const inputEmail = useRef()
-
-  async function getUsers() {
-    const usersFromApi = await api.get('/usuarios')
-    setUsers(usersFromApi.data)
-  }
 
   async function createUsers() {
     // --- SUGESTÃO 1: VALIDAÇÃO ---
@@ -43,24 +36,12 @@ function Home() {
       inputAge.current.value = ""
       inputEmail.current.value = ""
 
-      getUsers() 
     } catch (error) {
-      alert("Erro ao cadastrar usuário. Verifique se o e-mail já existe.")
+      // alert("Erro ao cadastrar usuário. Verifique se o e-mail já existe.")
+      console.error(error)
+      alert("Erro ao cadastrar usuário: " + (error.response?.data?.message || error.message))
     }
   }
-
-  async function deleteUsers(id) {
-    // Feedback antes de deletar (opcional)
-    if(confirm("Tem certeza que deseja excluir este usuário?")) {
-        await api.delete(`/usuarios/${id}`)
-        alert("Usuário removido! 🗑️")
-        getUsers()
-    }
-  }
-
-  useEffect(() => {
-    getUsers()
-  }, [])
 
   return (
     <div className='container'>
@@ -72,20 +53,6 @@ function Home() {
         <button type='button' onClick={createUsers}>Cadastrar</button>
         <button type='button' onClick={() => navigate('/')}>Sair / Voltar ao Login</button>
       </form>
-
-      {users.map((user) => (
-        <div key={user.id} className="lista">
-          <div>
-            <p>Nome: <span>{user.name}</span></p>
-            <p>Idade: <span>{user.age}</span></p>
-            <p>Email: <span>{user.email}</span></p>
-          </div>
-          <button className="trash-button" onClick={() => deleteUsers(user.id)}>
-            <img src={Trash} className="trash-icon" alt="Excluir" style={{ width: '20px' }} />
-          </button>
-          
-        </div>
-      ))}
     </div>
   )
 }
