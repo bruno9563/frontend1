@@ -1,0 +1,78 @@
+/* Isso garante que o fundo não tenha bordas brancas e ocupe tudo */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container-login {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza verticalmente o box */
+  flex-direction: column;
+  
+  /* ALTURA TOTAL: Isso resolve o problema de o degradê cortar no meio */
+  min-height: 100vh; 
+  width: 100%;
+
+  /* O DEGRADÊ: Começa em um vermelho vivo e termina no seu tom rgb(164, 21, 21) */
+  background: linear-gradient(180deg, #bc3b3b 0%, #a41515 100%);
+  
+  /* Faz o fundo ficar fixo caso a página cresça (evita repetição) */
+  background-attachment: fixed;
+}
+
+/* Ajuste no login-box para combinar com a nova centralização */
+.login-box {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px; /* Aumentei um pouco para respirar melhor */
+  border-radius: 30px;
+  background-color: rgb(164, 21, 21);
+  max-width: 90%; /* Melhor para celulares */
+  width: 400px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4); /* Sombra preta fica melhor no fundo escuro */
+}
+.login-box h1 {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-align: center;
+}
+
+.login-box input {
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    padding-left: 10px;
+    outline: none;
+}
+
+.login-box button {
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  height: 35px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+.login-box button:hover {
+    background-color: #fffafa;
+}
+
+.login-box p {
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    background-color: transparent !important;
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid rgb(255, 255, 255) !important;
+}
