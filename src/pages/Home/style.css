@@ -1,5 +1,6 @@
 /* Garante que o fundo ocupe tudo sem bordas brancas */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -10,11 +11,12 @@ body, html {
 .container {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centraliza verticalmente o formulário */
+  justify-content: center;
+  /* Centraliza verticalmente o formulário */
   flex-direction: column;
-  min-height: 100vh; 
+  min-height: 100vh;
   width: 100%;
-  background: linear-gradient(180deg,rgb(164, 21, 21));
+  background: linear-gradient(180deg, rgb(164, 21, 21));
   background-attachment: fixed;
   padding: 20px;
 }
@@ -30,9 +32,11 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Reduzi um pouco para não ficar muito longo */
+  gap: 20px;
+  /* Reduzi um pouco para não ficar muito longo */
   padding: 30px;
-  border-radius: 30px; /* Arredondado igual ao login */
+  border-radius: 30px;
+  /* Arredondado igual ao login */
   background-color: rgb(164, 21, 21);
   max-width: 90%;
   width: 400px;
@@ -41,8 +45,10 @@ form {
 }
 
 form input {
-  border: none; /* Removida borda preta para seguir o padrão clean */
-  border-radius: 20px; /* Inputs arredondados como no login */
+  border: none;
+  /* Removida borda preta para seguir o padrão clean */
+  border-radius: 20px;
+  /* Inputs arredondados como no login */
   height: 45px;
   background-color: #ffffff;
   color: #000000;
@@ -59,12 +65,103 @@ form button {
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
-  color: rgb(164, 21, 21); /* Texto da cor do card */
+  color: rgb(164, 21, 21);
+  /* Texto da cor do card */
   transition: 0.3s;
 }
 
 form button:hover {
   background-color: #fffafa;
   transform: scale(1.02);
-  opacity: 1; /* Removida a opacidade baixa para o botão brilhar */
+  opacity: 1;
+  /* Removida a opacidade baixa para o botão brilhar */
+}
+
+/* --- BOTÃO DE SUPORTE (Canto Inferior Esquerdo) --- */
+.support-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #ffffff;
+  color: rgb(164, 21, 21);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.support-button:hover {
+  transform: scale(1.1);
+  background-color: #f0f0f0;
+}
+
+/* --- CAIXA DE MENSAGEM DO SUPORTE --- */
+.support-box {
+  position: fixed;
+  bottom: 90px;
+  left: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.support-box h3 {
+  margin: 0;
+  color: rgb(164, 21, 21);
+  font-size: 18px;
+}
+
+.support-box textarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  /* Garante que o padding não estoure a largura */
+}
+
+.support-box button {
+  background-color: rgb(164, 21, 21);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.support-box button:hover {
+  background-color: rgb(130, 15, 15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
