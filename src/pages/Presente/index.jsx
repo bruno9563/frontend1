@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import api from '../../services/api';
 import './style.css';
 
 function Presente() {
-  const userId = localStorage.getItem('userId');
+  const { id } = useParams();
+  const userId = id;
   const [dados, setDados] = useState(null);
   const [tempo, setTempo] = useState("");
 
