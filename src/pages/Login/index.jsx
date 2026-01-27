@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import api from '../../services/api';
 import './style.css';
 
@@ -9,7 +9,17 @@ function Login() {
   const inputName = useRef();
   const inputEmail = useRef();
 
-  async function handleLogin() {
+  useEffect(() => {
+    // Se já estiver logado, vai direto para a criação
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      navigate('/criar');
+    }
+  }, [navigate]);
+
+  async function handleLogin(e) {
+    if (e) e.preventDefault(); // Evita recarrgar a página se vier do form
+
     const nomeDigitado = inputName.current.value.trim();
     const emailDigitado = inputEmail.current.value.trim();
 
@@ -50,17 +60,25 @@ function Login() {
     <div className="container-login">
       <div className="login-box">
         <h1>Login</h1>
-        <input
-          type="text"
-          placeholder="Digite seu Nome"
-          ref={inputName}
-        />
-        <input
-          type="email"
-          placeholder="Digite seu E-mail"
-          ref={inputEmail}
-        />
-        <button onClick={handleLogin}>Entrar</button>
+        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+          <input
+            id="username"
+            type="text"
+            name="username"
+            autoComplete="username"
+            placeholder="Digite seu Nome"
+            ref={inputName}
+          />
+          <input
+            id="email"
+            type="email"
+            name="email"
+            autoComplete="email"
+            placeholder="Digite seu E-mail"
+            ref={inputEmail}
+          />
+          <button type="submit">Entrar</button>
+        </form>
 
         <p>Ainda não tem cadastro?</p>
         <button className="btn-secondary" onClick={() => navigate('/cadastro')}>

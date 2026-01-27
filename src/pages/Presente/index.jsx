@@ -5,25 +5,25 @@ import './style.css';
 
 function Presente() {
   const { id } = useParams();
-  const userId = id;
   const [dados, setDados] = useState(null);
   const [tempo, setTempo] = useState("");
 
-  // 🔹 Carregar dados do usuário
+  // 🔹 Carregar dados do PRESENTE pela ID do presente
   useEffect(() => {
-    async function carregarUsuario() {
-      if (!userId) return;
+    async function carregarPresente() {
+      if (!id) return;
 
       try {
-        const response = await api.get(`/usuarios/${userId}`);
+        const response = await api.get(`/gifts/${id}`);
         setDados(response.data);
       } catch (error) {
-        console.error("Erro ao buscar usuário:", error);
+        console.error("Erro ao buscar presente:", error);
+        alert("Presente não encontrado ou link inválido.");
       }
     }
 
-    carregarUsuario();
-  }, [userId]);
+    carregarPresente();
+  }, [id]);
 
   // 🔹 Contador de tempo
   useEffect(() => {
