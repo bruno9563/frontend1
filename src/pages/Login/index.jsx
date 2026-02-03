@@ -9,13 +9,9 @@ function Login() {
   const inputName = useRef();
   const inputEmail = useRef();
 
-  useEffect(() => {
-    // Se já estiver logado, vai direto para a criação
-    const userId = localStorage.getItem('userId');
-    if (userId) {
-      navigate('/criar');
-    }
-  }, [navigate]);
+  // Removido o redirecionamento automático para permitir que o usuário
+  // sempre veja a tela de login ao acessar a rota raiz (/)
+  // Se quiser ir direto para criar, use o botão "Criar Presente" na navbar
 
   async function handleLogin(e) {
     if (e) e.preventDefault(); // Evita recarrgar a página se vier do form

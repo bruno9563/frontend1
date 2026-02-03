@@ -1,3 +1,4 @@
+import Navbar from '../../components/Navbar';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
@@ -27,8 +28,9 @@ function MeusPresentes() {
     }, [navigate]);
 
     return (
-        <div className="container-geral">
-            <div className="login-box" style={{ maxWidth: '600px', width: '90%' }}>
+        <div className="container-geral" style={{ flexDirection: 'column', paddingTop: '80px' }}>
+            <Navbar />
+            <div className="gift-box" style={{ maxWidth: '600px', width: '90%' }}>
                 <h1 style={{ color: 'white', marginBottom: '20px' }}>Meus Presentes 🎁</h1>
 
                 {carregando ? (

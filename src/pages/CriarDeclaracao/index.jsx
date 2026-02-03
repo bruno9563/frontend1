@@ -1,3 +1,4 @@
+import Navbar from '../../components/Navbar';
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
@@ -54,8 +55,9 @@ function CriarDeclaracao() {
     }
 
     return (
-        <div className="container-geral">
-            <div className="login-box">
+        <div className="container-geral" style={{ flexDirection: 'column', paddingTop: '80px' }}>
+            <Navbar />
+            <div className="gift-box">
                 <h1>Criar Novo Presente</h1>
 
                 <p className="label-input">Sua mensagem de amor:</p>
